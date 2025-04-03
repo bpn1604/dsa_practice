@@ -46,6 +46,49 @@ for (let i=0;i<Input.length-2;i++) {
     }
 }
 console.log(res)
+
+//first and last occurence by binary search
+let input = [5,7,7,8,8,10]
+let target = 8  
+//Output: [3, 4]  
+
+
+let output = []
+
+
+    let start =0
+    let end = input.length-1
+    //first find first appearance
+    while (start <= end) {
+        let mid = Math.floor((start + end) /2)
+        
+        if(input[mid] < target) {
+            start = mid+1
+        }else if( input[mid] > target ) {
+            end = mid -1
+        }else {
+            output[0] = mid
+            end = mid -1
+        }
+    }
+    start =0
+    end =input.length-1
+    
+     while (start <= end) {
+        let mid = Math.floor((start + end) /2)
+        
+        if(input[mid] < target) {
+            start = mid+1
+        }else if( input[mid] > target ) {
+            end = mid -1
+        }else {
+            output[1] = mid
+            start = mid+1 
+        }
+    
+    //last occurence
+}
+console.log(output)
         
     Three Sum → Find unique triplets in an array that sum to zero.
     Longest Substring Without Repeating Characters → Find the length of the longest substring without repeating characters.

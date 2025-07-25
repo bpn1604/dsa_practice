@@ -1,0 +1,18 @@
+//debounce
+const debounce = (fn,delay)=>{
+    let timer ;
+    return (...args) =>{
+        
+        clearTimeout(timer)
+        timer =setTimeout(()=>{
+            fn(...args)
+        })
+    }
+}
+
+const debounced = debounce((msg)=>{
+    console.log(msg)
+},1000)
+debounced(1)
+debounced(2)
+debounced(3)

@@ -16,3 +16,34 @@ const debounced = debounce((msg)=>{
 debounced(1)
 debounced(2)
 debounced(3)
+
+const throttle = (fn , delay)=>{
+    let isTriggered = false
+    
+    return (...args) =>{
+        if(isTriggered){
+            return
+        }
+        
+        isTriggered = true
+        setTimeout(()=>{
+            fn(...args)
+            isTriggered = false
+        },delay)
+        
+    }
+    
+}
+
+const throttled = throttle((msg)=>{
+    console.log(msg)
+},1000)
+
+throttled(1)
+throttled(2)
+throttled(3)
+const throttled1 = throttle((msg)=>{
+    console.log(msg)
+},1100)
+
+throttled1(4)

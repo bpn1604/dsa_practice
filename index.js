@@ -89,6 +89,38 @@ let output = []
     //last occurence
 }
 console.log(output)
+
+Input: arr = [1, 2, 3, 1, 1, 1, 1, 3]
+let  k = 3
+// Output: 3
+// Explanation: The subarray [1, 1, 1] (indices 3–5) has sum 3 and length 3, which is the 
+
+
+let len = 0;
+let sum = 0;
+let map = new Map();
+
+for (let i=0;i<arr.length;i++) {
+    sum+=arr[i]
+    
+    if(sum == k ) {
+        len = Math.max(len , i+1)
+    }
+    
+    if(map.has(sum- k) ){
+        len = Math.max(len , i- map.get(sum - k) )
+    }
+    
+    
+    if(!map.has(sum)) {
+        map.set(sum,i)
+    }
+    len -2
+    1,0
+    3,1
+}
+console.log(len)
+
         
     Three Sum → Find unique triplets in an array that sum to zero.
     Longest Substring Without Repeating Characters → Find the length of the longest substring without repeating characters.
